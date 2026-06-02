@@ -60,32 +60,45 @@ span {
     color: #06B6D4;
 }
 
-/* NAVBAR */
+/* ==========================================================================
+   RESPONSIVE NAVBAR & DESKTOP STYLES
+   ========================================================================== */
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
+    height: 70px;
+    background-color: rgba(15, 23, 42, 0.85); /* Transparent dark slate */
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5);
     z-index: 1000;
-    border-bottom: 1px solid #1E293B;
+    box-sizing: border-box; /* Pinipigilan ang paglapas ng bar sa screen */
 }
 
 .nav-container {
     max-width: 1200px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
+    padding: 0 1.5rem; /* Padding sa gilid para hindi didikit sa screen ng phone */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo sa kaliwa, Menu sa kanan */
     align-items: center;
-    padding: 1.2rem 2rem;
+    box-sizing: border-box;
 }
 
 .logo {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #F8FAFC;
     text-decoration: none;
+    white-space: nowrap; /* Pinipigilan ang logo na mag-wrap sa dalawang linya */
+}
+
+.logo span {
+    color: #06B6D4;
 }
 
 .nav-links {
@@ -98,11 +111,90 @@ span {
     color: #94A3B8;
     text-decoration: none;
     font-weight: 500;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #06B6D4;
+}
+
+/* Hamburger Icon Mechanics (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1005;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #F8FAFC;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION BAR RESPONSIVENESS (768px and below)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px; /* Mas pinalit nang kaunti ang taas ng bar sa mobile para sa karagdagang space */
+    }
+
+    .menu-toggle {
+        display: flex; /* Lalabas na ang hamburger sa gilid ng navbar */
+    }
+
+    /* Ginagawang vertical drawer panel ang mahabang menu list */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Nakatago sa kanan ng screen */
+        width: 260px; /* Tamang lapad para sa mobile drawer */
+        height: 100vh;
+        background-color: #0F172A; /* Solid background para hindi maghalo ang text */
+        border-left: 1px solid #1E293B;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem; /* Clearance sa taas para iwas-overlap */
+        gap: 1.8rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Klase na ikakabit ng JS kapag pinindot ang hamburger menu */
+    .nav-links.active {
+        right: 0; /* Papasok ang panel sa screen */
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+    }
+
+    /* Hamburger Animation to 'X' */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: #06B6D4;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: #06B6D4;
+    }
 }
 
 /* HERO SECTION - Highlighted Nikko Delfin */
