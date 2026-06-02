@@ -107,6 +107,7 @@ span {
 
 /* HERO SECTION - Highlighted Nikko Delfin */
 /* HERO SECTION - UPDATED FOR TWO-COLUMN WITH IMAGE */
+/* HERO SECTION - UPDATED FOR TWO-COLUMN WITH IMAGE */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -215,7 +216,6 @@ span {
         height: 260px;
     }
 }
-
 /* SKILLS SECTION */
 .skills-section {
     max-width: 1200px;
