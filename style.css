@@ -586,3 +586,35 @@ footer {
 .text-orange { color: #E34F26; }
 .text-blue { color: #1572B6; }
 .text-green { color: #47A248; }
+
+
+/* TRACEALARM FEATURE SUB-BLOCKS */
+.project-feature-block {
+    margin-bottom: 1.2rem;
+    text-align: left;
+    background-color: rgba(15, 23, 42, 0.4);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border-left: 3px solid #06B6D4; /* Cyan accent line on the left */
+}
+
+.project-feature-block h4 {
+    font-size: 0.95rem;
+    color: #F8FAFC;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-feature-block h4 i {
+    font-size: 1rem;
+    color: #06B6D4;
+}
+
+.project-feature-block p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
